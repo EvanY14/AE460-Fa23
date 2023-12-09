@@ -212,4 +212,54 @@ re_list = [speed_10_re, speed_20_re, speed_30_re]
 
 plot_trials(aoa_list, cl_list, cd_list, cm_list, re_list, ['o', '^', 's'], ['--', '-.', ':'])
 
+# %%
+sim_data = pd.read_csv('data/sim_data.csv')
+sim_cl = sim_data["CL"]
+sim_cd = sim_data["CD"]
+sim_cm = sim_data["CM3"]
+
+# %%
+plt.plot(np.array(aoa_list[0]), np.array(cl_10), label="Re = 21836")
+plt.plot(np.array(aoa_list[0]), np.array(cl_20), label="Re = 39746")
+plt.plot(np.array(aoa_list[0]), np.array(cl_30), label="Re = 62560")
+plt.plot(np.array(aoa_list[0]), np.array(sim_cl), label="Simulation")
+plt.legend()
+plt.xlabel("AoA (Degrees)")
+plt.ylabel("$C_L$")
+plt.title("$C_L$ vs AoA")
+plt.grid()
+
+# %%
+plt.plot(np.array(aoa_list[0]), np.array(cd_10), label="Re = 21836")
+plt.plot(np.array(aoa_list[0]), np.array(cd_20), label="Re = 39746")
+plt.plot(np.array(aoa_list[0]), np.array(cd_30), label="Re = 62560")
+plt.plot(np.array(aoa_list[0]), np.array(sim_cd), label="Simulation")
+plt.legend()
+plt.xlabel("AoA (Degrees)")
+plt.ylabel("$C_D$")
+plt.title("$C_D$ vs AoA")
+plt.grid()
+
+# %%
+plt.plot(np.array(aoa_list[0]), np.array(cm_10), label="Re = 21836")
+plt.plot(np.array(aoa_list[0]), np.array(cm_20), label="Re = 39746")
+plt.plot(np.array(aoa_list[0]), np.array(cm_30), label="Re = 62560")
+plt.plot(np.array(aoa_list[0]), np.array(sim_cm), label="Simulation")
+plt.legend()
+plt.xlabel("AoA (Degrees)")
+plt.ylabel("$C_M$")
+plt.title("$C_M$ vs AoA")
+plt.grid()
+
+# %%
+plt.plot(np.array(cd_10), np.array(cl_10), label="Re = 21836")
+plt.plot(np.array(cd_20), np.array(cl_20), label="Re = 39746")
+plt.plot(np.array(cd_30), np.array(cl_30), label="Re = 62560")
+plt.plot(np.array(sim_cd), np.array(sim_cl), label="Simulation")
+plt.legend()
+plt.xlabel("$C_D$")
+plt.ylabel("$C_L$")
+plt.title("$C_L$ vs $C_D$")
+plt.grid()
+
 
